@@ -28,6 +28,21 @@
   font-family: Roboto, sans-serif;
 }
 
+html,
+body,
+#root,
+main {
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--blue-700);
+}
+
 img {
   width: 100%;
   display: inline-flex;
@@ -36,19 +51,24 @@ img {
 }
 
 .card {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .card__illustration-container {
   width: 100%;
+  border: none;
+  margin-bottom: 40px;
 }
 
 .card__content-container {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 40px 24px 44px 24px;
+  padding: 0 24px 44px 24px;
 }
 
 .card__text-content {
@@ -69,7 +89,7 @@ img {
 
 .card__ul li {
   list-style: none;
-  background: url(./assets/images/icon-list.svg) no-repeat left 20%;
+  background: url(./assets/images/icon-list.svg) no-repeat left 30%;
   padding: 4px 0 4px 40px;
   line-height: 150%;
 }
@@ -128,6 +148,8 @@ img {
 .success-dialog {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
   padding: 0 24px;
 }
 
@@ -136,10 +158,78 @@ img {
   flex-direction: column;
   gap: 32px;
   margin-top: 30%;
-  margin-bottom: 40%;
+  margin-bottom: 50%;
 }
 
 .success-icon-container {
-  width: 48px;
-  height: 48px;
+  width: 64px;
+  height: 64px;
+}
+
+@media (min-width: 648px) {
+  .card {
+    width: 80%;
+    min-height: 0;
+    border-radius: 36px;
+    padding: 2.5rem;
+  }
+
+  .card__illustration-container {
+    max-height: 20%;
+  }
+
+  .card__heading {
+    font-size: 3.5rem;
+  }
+
+  .card__content-container {
+    gap: 24px;
+  }
+
+  .success-dialog {
+    border-radius: 36px;
+    padding: 60px 64px;
+    max-width: 540px;
+    min-height: 0;
+    max-height: 520px;
+  }
+
+  .success-content {
+    margin: 0;
+    margin-bottom: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    max-width: 904px;
+    flex-direction: row;
+    gap: 64px;
+  }
+
+  .card__illustration-container {
+    order: 1;
+    max-width: 45%;
+    margin-bottom: 0;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .card__illustration-container img {
+    height: 100%;
+  }
+
+  .card__content-container {
+    align-self: center;
+    padding: 0;
+  }
+
+  .btn:active,
+  .btn:hover {
+    background: linear-gradient(
+      to right,
+      hsl(15deg, 100%, 61%),
+      hsl(346deg, 100%, 66%)
+    );
+  }
 }
